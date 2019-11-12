@@ -64,8 +64,5 @@ buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 
-.gitignore
 .idea/
-pom.xml
-
 /my-demo-snippet.iml
