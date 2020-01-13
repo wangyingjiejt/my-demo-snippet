@@ -11,11 +11,12 @@ public class RateLimiterDemo {
     public static void main(String[] args) {
 //        RateLimiterDemo.testSmoothBursty();
         RateLimiterDemo.testSmoothBursty3();
+        
     }
 
 
     public static void testSmoothBursty3() {
-        RateLimiter r = RateLimiter.create(5);
+        RateLimiter r = RateLimiter.create(3);
         while (true)
         {
             System.out.println("get 5 tokens: " + r.acquire(5) + "s");
