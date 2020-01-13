@@ -17,6 +17,7 @@ import java.util.stream.Collector;
 public class HistogramCollector implements Collector<Double, Map<Integer, Integer>, Map<Integer, Integer>> {
 
 
+    //直方图的组距
     private int bucketSize;
 
     public HistogramCollector(int bucketSize) {
@@ -74,7 +75,11 @@ public class HistogramCollector implements Collector<Double, Map<Integer, Intege
     }
 
 
-
+    /**
+     * 静态获取一个hsitogram对象
+     * @param bucketSize
+     * @return
+     */
     public static HistogramCollector toHistogram(int bucketSize) {
         return new HistogramCollector(bucketSize);
     }
@@ -85,4 +90,9 @@ public class HistogramCollector implements Collector<Double, Map<Integer, Intege
         Map<Integer, Integer> histogram = numbers.stream().collect(toHistogram(2));
         System.out.println(histogram);
     }
+
+    /**
+     * print result:
+     * {0=4, 1=1, 2=1, 3=1, 4=1}
+     */
 }
