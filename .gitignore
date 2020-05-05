@@ -66,3 +66,6 @@ buildNumber.properties
 
 .idea/
 /my-demo-snippet.iml
+
+
+/redis-demo/src/main/resources/redis-local.properties
