@@ -69,12 +69,12 @@ public class HyperLogLogDemo {
      */
     @Test
     public void hyperloglog() {
-        String [] numArr=new String[200];
+        String [] numArr=new String[10000];
         Set<String> noRepeatSet =new HashSet<>();
-        //生成200个0-100的数字，统计不重复的数字
+        //生成10000个0-10000的数字，统计不重复的数字
         Random random = new Random();
-        List<Integer> collect = random.ints(0, 100)
-                .limit(200)
+        List<Integer> collect = random.ints(0, 10000)
+                .limit(10000)
                 .boxed()
                 .collect(Collectors.toList());
 
@@ -88,8 +88,8 @@ public class HyperLogLogDemo {
         /**
          * console log
          *
-         * 不重复的真实个数 = 92
-         * hyperloglog统计数 = 92
+         * 不重复的真实个数 = 6322
+         * hyperloglog统计数 = 6345
          */
     }
 }
