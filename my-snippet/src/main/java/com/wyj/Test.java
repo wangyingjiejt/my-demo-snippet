@@ -1,5 +1,8 @@
 package com.wyj;
 
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
@@ -26,7 +29,9 @@ public class Test {
 //            }
 //        }
 
-        System.out.println(String.valueOf(49).equals("49"));
+
+
+
     }
 
 
@@ -44,5 +49,6 @@ public class Test {
         long nowSec=LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8"));
         return (nowSec-currentDaySec)/interval*60;
     }
+
 
 }
