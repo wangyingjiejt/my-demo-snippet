@@ -1,4 +1,4 @@
-package com.wyj;
+package com.wyj.concurrent;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executors;
