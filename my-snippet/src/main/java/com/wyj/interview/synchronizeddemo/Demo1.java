@@ -84,6 +84,10 @@ class Phone {
      * 注意到sendMsg和call都使用了synchronized关键字修饰，synchronized锁的是phone这个对象实例this,
      * 所以再先执行sendMsg方法时就获取到了锁，虽然在睡眠但是锁并没有释放，而call方法拿不到锁肯定时无法执行的
      * 只能等待锁释放后竞争到锁再执行。
+     *
+     *
+     * 另外需要注意的是 线程调用sleep方法，不会释放锁么？
+     * sleep方法只会让出cpu时间片，让其它线程有机会去获取cpu资源，但是并不会释放锁，sleep不影响锁机制，注意和wait的区别
      */
 
 

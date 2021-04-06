@@ -77,7 +77,7 @@ class ProductFactory {
             //先获取锁
             lock.lock();
             try {
-                //有库生产者阻塞等待
+                //有库存生产者阻塞等待
                 if (hasStock) {
                     produceCondition.await();
                 }

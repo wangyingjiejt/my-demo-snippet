@@ -62,7 +62,7 @@ class Phone2 {
      * print result:
      * call other...
      * send msg...
-     * 与demo1输出的结果时不一致的，这是因为call方法并没有被synchronized修饰，所以它不需要等sendMsg的锁释放
+     * 与demo1输出的结果是不一致的，这是因为call方法并没有被synchronized修饰，所以它不需要等sendMsg的锁释放
      * 直接就可以执行
      */
 
