@@ -2,6 +2,7 @@ package com.wyj.springenv.demos.web.observer;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.EventListener;
+import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,6 @@ import org.springframework.stereotype.Service;
  * @Date 2021/4/14 22:37
  */
 @Service
-@Order(2)
 public class SendCoupons  {
 
 

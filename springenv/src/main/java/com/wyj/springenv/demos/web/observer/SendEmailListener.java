@@ -4,13 +4,14 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 
+import java.lang.annotation.Annotation;
+
 /**
  * 给用户发送邮件
  * @Author W.Y.J
  * @Date 2021/4/14 22:33
  */
 @Service
-@Order(1)
 public class SendEmailListener implements ApplicationListener<UserRegisterEvent> {
 
     @Override
