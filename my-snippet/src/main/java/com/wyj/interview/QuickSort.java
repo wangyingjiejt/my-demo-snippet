@@ -16,9 +16,9 @@ public class QuickSort {
 
     @Test
     public void test(){
-        int[] arr= {5, 9, 4, 6, 5, 3,7};
+        int[] arr= {3,2,3,1,2,4,5,5,6};
         quickSort(arr,0,arr.length-1);
-        Arrays.stream(arr).forEach(System.out::println);
+        Arrays.stream(arr).forEach(System.out::print);
     }
 
     public void quickSort(int arr[], int begin, int end) {
@@ -60,9 +60,10 @@ public class QuickSort {
 
     @Test
     public void testDoubleQuickSort(){
-        int[] arr= {5, 9, 4, 6, 5, 3,7};
+        int[] arr= {3,2,3,1,2,4,5,5,6};
+//        int[] arr= {4,7,6,5,3,2,8,1};
         doubleQuickSort(arr,0,arr.length-1);
-        Arrays.stream(arr).forEach(System.out::println);
+        Arrays.stream(arr).forEach(System.out::print);
     }
 
 
@@ -86,23 +87,32 @@ public class QuickSort {
     }
 
     private int doublePartitions(int[] arr, int begin, int end) {
-        int left = begin+1;
+        int left = begin;
         int right =end;
         int pivot=arr[begin];
-        while (left<right){
-            while (left<=right&&arr[left]<=pivot)
-                left++;
-            while (left<=right&&arr[right]>pivot)
+        while (left!=right){
+            /**
+             * 先从右遍历和先从左遍历不同，先从右遍历，最终相等的位置正好是最后一个小于pivot的位置，
+             * 反过来则最终相等的位置是最后一个大于pivot的位置（因为相等就不再移动，故谁先移动，谁就能夺走一步）
+             * 因为使用第一个元素（未必是整个数组的第一个）作为支点，最后要交换最后一个小于支点的值，而不能交换最后一个大于支点的值
+             * 故先从右边开始遍历
+             */
+            while (left<right&&arr[right]>pivot)
                 right--;
+            while (left<right&&arr[left]<=pivot) {
+                left++;
+            }
             if (left<right){
                 swap(arr,left,right);
             }
         }
-        //最后将第一个作为pivot支点的元素和right交换位置
-        swap(arr,begin,right);
+        //交换支点和最后一个小于支点的元素，交换后支点所在位置应当就是排完序之后所在的位置
+        swap(arr,begin,left);
 
-        return right;
+        return left;
     }
+
+
 
     /*******************************************冒泡排序*************************************************/
     @Test
