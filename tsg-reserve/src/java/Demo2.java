@@ -25,12 +25,14 @@ public class Demo2 {
             page = webClient.getPage(UrlConstant.MLOGIN_URL);//尝试加载上面图片例子给出的网页
             System.out.println(page.asXml());
             System.out.println("----------------");
-            DomElement phoneInput = page.getElementById("phone");
-            phoneInput.setTextContent("");
-            DomElement pwdInput = page.getElementById("pwd");
-            pwdInput.setTextContent("");
+            HtmlForm form = (HtmlForm) page.getByXPath("//form[@action='']").get(0);
+            HtmlButton button = (HtmlButton) form.getByXPath("//button[@type='button']").get(0);
+            HtmlInput phoneInput = (HtmlInput)(form.getByXPath("//input[@id='phone']").get(0));
+            phoneInput.setTextContent("18513024088");
+            HtmlInput pwdInput = (HtmlInput)(form.getByXPath("//input[@id='pwd']").get(0));
+            pwdInput.setTextContent("TZTSG1992");
             //get div which has a 'name' attribute of 'John'
-            HtmlButton button = (HtmlButton) page.getByXPath("//button[@type='button']").get(0);
+//            HtmlButton button = (HtmlButton) page.getByXPath("//button[@type='button']").get(0);
 //            HtmlButton button =(HtmlButton) elementP.getFirstChild();
             HtmlPage newPage = button.click();
             webClient.waitForBackgroundJavaScript(3000);//异步JS执行需要耗时,所以这里线程要阻塞30秒,等待异步JS执行结束

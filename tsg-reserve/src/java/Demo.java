@@ -93,8 +93,8 @@ public class Demo {
         String pwdEncode = base64.encodeToString(pwd.getBytes());
         System.out.println(pwdEncode);
         nameValuePairs.add(new BasicNameValuePair("password", pwdEncode));
-        nameValuePairs.add(new BasicNameValuePair("refer", ""));
-        nameValuePairs.add(new BasicNameValuePair("t", "true"));
+//        nameValuePairs.add(new BasicNameValuePair("refer", ""));
+//        nameValuePairs.add(new BasicNameValuePair("t", "true"));
         System.out.println("nameValuePairs:" + nameValuePairs);
         try {
             httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
